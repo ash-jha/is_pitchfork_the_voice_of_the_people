@@ -1,5 +1,4 @@
-# edafinal
-MSDS 593 - EDA Final Project
+# MSDS 593 - EDA Final Project
 
 Ashwini Jha
 Sean Tey
