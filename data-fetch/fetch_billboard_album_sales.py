@@ -1,3 +1,4 @@
+import sys
 import pandas as pd
 import random
 import billboard
@@ -13,6 +14,12 @@ import pickle
 ################################################
 
 def main():
+
+    if len(sys.argv) != 2:
+        print('Please provide output path for csv file.')
+        print('Usage: python fetch_billboard_album_sales.py [output csv path]')
+        sys.exit(1)
+
     start_date = '2019-10-05'  # Week before final's week of module 1
     end_date = '1999-01-05'
     chart_week_dates = generate_date_list(start_date, end_date)
@@ -23,7 +30,9 @@ def main():
     #     pickle.dump(list_of_charts, fp)
 
     album_ranks = generate_album_peak_positions(list_of_charts)
-    export_to_csv(album_ranks,'chart_rankings_2014_test.csv')
+
+    output_csv_path = sys.argv[1]
+    export_to_csv(album_ranks,output_csv_path)
 
 
 def generate_date_list(start_date,end_date):
