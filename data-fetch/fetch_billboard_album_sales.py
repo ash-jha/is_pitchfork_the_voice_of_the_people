@@ -51,9 +51,7 @@ def generate_date_list(start_date,end_date):
 
 
 def backoff_error_msg(details):
-    print ("Backing off {wait:0.1f} seconds afters {tries} tries "
-           "calling function {func} with args {args} and kwargs "
-           "{kwargs}".format(**details))
+    print ("Backing off {wait:0.1f} seconds afters {tries} tries ".format(**details))
 
 
 @backoff.on_exception(backoff.expo, requests.exceptions.RequestException, on_backoff=backoff_error_msg)
