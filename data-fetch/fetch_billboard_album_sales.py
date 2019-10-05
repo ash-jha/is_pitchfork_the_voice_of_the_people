@@ -1,20 +1,24 @@
-import numpy as np
 import pandas as pd
 import random
-import pickle
 import billboard
 import requests
 import backoff
 import time
 from collections import defaultdict
 from datetime import datetime,timedelta
+import pickle
+
+################################################
+# Usage: python fetch_billboard_album_sales.py #
+################################################
 
 def main():
-    start_date = '2014-12-27'  # Week before final's week of module 1
-    end_date = '2014-12-01'
+    start_date = '2019-10-05'  # Week before final's week of module 1
+    end_date = '1999-01-05'
     chart_week_dates = generate_date_list(start_date, end_date)
     list_of_charts = scrape_album_sales_charts(chart_week_dates)
 
+    # Optional
     # with open('chart.pkl', 'wb') as fp:
     #     pickle.dump(list_of_charts, fp)
 
