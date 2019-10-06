@@ -40,7 +40,7 @@ def auth_spotify(secret_file):
 # If album name matches but artist name does not match, we assume the first entry is correct.
 def get_spotify_album_id(spotify_api,query_artist_name,query_album_name,DEBUG=False):
     # recommended search query is 'artist name + album name'
-    search_query = query_artist_name.strip()+' '+query_album_name.strip()
+    search_query = str(query_artist_name).strip()+' '+str(query_album_name).strip()
 
     try:
         album_search_results = spotify_api.search(q=search_query, type='album', limit=10)
