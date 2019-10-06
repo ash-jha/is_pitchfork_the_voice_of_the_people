@@ -10,11 +10,12 @@ from spotipy.oauth2 import SpotifyClientCredentials
 
 def main():
 
+    if len(sys.argv != 4):
+        print('Usage: python fetch_album_play_counts.py [spotify_api_key.csv] [artist_title_csv_path] [output_csv_path]')
+
     secret_file = sys.argv[1]
     artist_title_file = sys.argv[2]
     output_csv_path = sys.argv[3]
-
-    print('Usage: python fetch_album_play_counts.py [spotify_api_key.csv] [artist_title_csv_path] [output_csv_path]')
 
     spotify_api_obj = auth_spotify(secret_file)
     artist_title = pd.read_csv(artist_title_file)
