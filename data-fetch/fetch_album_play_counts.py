@@ -44,12 +44,14 @@ def get_spotify_album_id(spotify_api,query_artist_name,query_album_name,DEBUG=Fa
 
     try:
         album_search_results = spotify_api.search(q=search_query, type='album', limit=10)
-        if len(album_search_results['albums']['items']) == 0:
-            return None  # Nothing was found
     except Exception as e:
         print(e) # unlikely to happen unless input search query is empty
         print(f'Search Query: {query_artist_name} {query_album_name}')
         return None # log which albums were discarded?
+
+    # If search returns no result, return none.
+    if len(album_search_results['albums']['items']) == 0:
+        return None  # Nothing was found
 
     # If search returns at least one result, loop through to find the first occurence of matching album name and artist
     album_id = None
@@ -98,6 +100,9 @@ def generate_play_counts_df(spotify_api,artist_title_df):
         album_name = row[1]
 
         album_id = get_spotify_album_id(spotify_api,artist_name,album_name)
+
+        if album_id is None:
+            continue # skip if album id not found on spotify
 
         print(f'Fetching data for: row={i}/{artist_title_df.shape[0]}, artist={artist_name}, album={album_name}')
         album_play_count = get_album_play_count(album_id)
