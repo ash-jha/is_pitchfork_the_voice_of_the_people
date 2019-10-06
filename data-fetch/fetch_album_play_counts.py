@@ -98,6 +98,7 @@ def generate_play_counts_df(spotify_api,artist_title_df):
 
         album_id = get_spotify_album_id(spotify_api,artist_name,album_name)
 
+        print(f'Fetching data for: row={i}/{artist_title_df.shape[0]}, artist={artist_name}, album={album_name}')
         album_play_count = get_album_play_count(album_id)
         streams_df.loc[i] = [artist_name, album_name, album_play_count]
 
