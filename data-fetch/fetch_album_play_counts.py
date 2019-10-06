@@ -5,7 +5,8 @@ import requests
 import json
 from spotipy.oauth2 import SpotifyClientCredentials
 
-# Usage: python fetch_album_play_counts.py [spotify_api_key.csv] artist_title.csv [output_csv_path]
+# Usage: python fetch_album_play_counts.py [spotify_api_key.csv] [artist_title.csv] [output_csv_path]
+# artist_title.csv has two columns: artist, title which are from the pitchfork dataset's reviews table
 
 def main():
 
