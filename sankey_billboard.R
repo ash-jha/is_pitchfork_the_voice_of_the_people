@@ -16,10 +16,12 @@ df_links <- read_feather(links_path)
 print(df_nodes)
 print(df_links)
 
-sankey_title_string <- "Pitchfork Scores                                                      Peak Position on Billboard Charts"
+sankey_title_string <- "Pitchfork Scores                                                          Peak Position on 
+                                                                          Billboard Charts"
 
 sankeyNetwork(Links = df_links, Nodes = df_nodes, Source = "score_bucket_index",
               Target = "chart_bucket_index", Value = "count", NodeID = "nodes",
               units = "Albums", fontSize = 20, nodeWidth = 20, 
               fontFamily = "sans-serif", iterations = 0) %>% 
-  htmlwidgets::prependContent(htmltools::tags$pre(sankey_title_string))
+  htmlwidgets::prependContent(htmltools::tags$h3(htmltools::tags$pre(sankey_title_string)))
+
