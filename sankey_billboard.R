@@ -1,3 +1,5 @@
+## NOTE: PLEASE USE RSTUDIO TO LOAD THIS SCRIPT
+
 library("networkD3")
 library("feather")
 library(htmlwidgets)
@@ -22,7 +24,7 @@ sankey_title_string <- "Pitchfork                                               
 # Colors for the sankey
 color_JS <- JS("d3.scaleOrdinal([\"#006d2c\", \"#31a354\", \"#74c476\", \"#bae4b3\", \"#edf8e9\",
                 \"#31a354\", \"#74c476\", \"#bae4b3\", \"#edf8e9\"])")
-               
+
 # d3 Sankey generator
 sankeyNetwork(Links = df_links, Nodes = df_nodes, Source = "score_bucket_index",
               Target = "chart_bucket_index", Value = "count", NodeID = "nodes",
@@ -34,5 +36,4 @@ sankeyNetwork(Links = df_links, Nodes = df_nodes, Source = "score_bucket_index",
                               htmltools::tags$style("pre{font-family:Arial;font-size:15px; margin:0px;font-weight: bold;}"),
                               # Weird fix for wrong color on sankey nodes
                               htmltools::tags$style("svg g g.node:nth-of-type(6) rect{fill:#006d2c !important;}"))
-
 
