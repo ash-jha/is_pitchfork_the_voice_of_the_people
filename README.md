@@ -1,5 +1,7 @@
 # MSDS 593 - EDA Final Project
 
+See `FinalPresentation_AshSean.pdf` for the presentation containing all our visualizations.
+
 Ashwini Jha
 
 Sean Tey
